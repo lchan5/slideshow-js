@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<head>
+<meta http-equiv="Content/Type" content="text/html; charset=UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<style type="text/css">
+  .container {
+	width:650px;
+	height:480px;
+	margin:20px auto;
+    position:relative;
+	}
+	
+	#img {
+		width:650px;
+		height:480px;
+		position:absolute;
+	}
+	#left_holder {
+		width:100px;
+		height:480px;
+		position:absolute;
+		top:40%;
+		left:0;
+	}
+	#right_holder {
+		width:100px;
+		height:480px;
+		position:absolute;
+		top:40%;
+		right:0;
+	}
+
+	.left, .right {
+		width:50px;
+		height:50px;
+		position:absolute;
+	}
+	
+	.left {
+		top:0;
+		left:0;
+	}
+	.right {
+		top:0;
+		right:0;
+	}
+
+</style>
+
+<script type="text/javascript">
+
+   var imagecount = 1;
+   var total = 5;
+   
+   function slide(x) {
+     var Image = document.getElementById('img');
+     imagecount = imagecount + x;
+
+     // if 5th image, go to first image
+     if(imagecount > total) {
+	   imagecount = 1;
+     }
+
+     // if 1st image, go to last image
+     if(imagecount < 1) {
+	   imagecount = total;
+     }
+     
+     Image.src = "images/img" + imagecount +".jpg";
+
+   }
+
+</script>
+</head>
+
+<body>
+
+<div class="container">
+  <img id="img" src="images/img1.jpg" />
+  <div id="left_holder"><img onclick="slide(-1)" class="left" src="images/arrow-3D-green-left.jpg" /></div>
+  <div id="right_holder"><img onclick="slide(1)" class="right" src="images/arrow-3D-green-right.jpg" /></div>
+</div>
+
+</body>
